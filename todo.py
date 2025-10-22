@@ -63,3 +63,8 @@ async def delete_single_todo(todo_id: int) -> dict:
         status_code=status.HTTP_404_NOT_FOUND,
         detail="Todo with supplied ID doesn't exist",
     )
+
+@todo_router.delete("/todo")
+async def delete_all_todo() -> dict:
+    todo_list.clear()
+    return {"message": "All the items deleted"}
